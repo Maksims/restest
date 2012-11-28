@@ -6,8 +6,6 @@ html body {
   height: 100%;
   margin: 0;
   overflow: scroll;
-  /*overflow-x: hidden;*/
-
   font-family: Helvetica;
   background: #303030;
   font-size: 16px;
@@ -73,11 +71,11 @@ header .button#presets {
 header select {
   height: 30px;
 }
-header input#url {
+header #url {
   width: 384px;
 }
-header input#width,
-header input#height {
+header #width,
+header #height {
   width: 48px;
   text-align: center;
 }
@@ -123,7 +121,7 @@ header > div.panel > div.share.googleplus {
 header > div.panel > div.share.googleplus:hover {
   background-position: 0 -66px;
 }
-div#frame {
+#frame {
   width: 320px;
   height: 480px;
   position: relative;
@@ -142,7 +140,7 @@ div#frame {
   -ms-user-select: none;
   user-select: none;
 }
-div#frame > div.scaleRight {
+#frame > div.scaleRight {
   position: absolute;
   top: 50%;
   right: 0;
@@ -153,7 +151,7 @@ div#frame > div.scaleRight {
   opacity: 0.3;
   cursor: col-resize;
 }
-div#frame > div.scaleBottom {
+#frame > div.scaleBottom {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -164,7 +162,7 @@ div#frame > div.scaleBottom {
   opacity: 0.3;
   cursor: row-resize;
 }
-div#frame > div.scaleCorner {
+#frame > div.scaleCorner {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -175,7 +173,7 @@ div#frame > div.scaleCorner {
   opacity: 0.3;
   cursor: nwse-resize;
 }
-div#frame > div.overlay {
+#frame > div.overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -183,7 +181,7 @@ div#frame > div.overlay {
   height: 100%;
   display: none;
 }
-div#frame > iframe {
+#frame > iframe {
   background: #fff;
   border: 1px solid #303030;
   width: 100%;
@@ -196,7 +194,7 @@ div#frame > iframe {
   -ms-user-select: none;
   user-select: none;
 }
-div#modal {
+#modal {
   display: none;
   opacity: 0;
   position: fixed;
@@ -204,7 +202,7 @@ div#modal {
   height: 100%;
   z-index: 201;
 }
-div#modal > div.close {
+#modal > div.close {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -213,7 +211,7 @@ div#modal > div.close {
   cursor: pointer;
   background: rgba(64, 64, 64, 0.92);
 }
-div#modal > div.container {
+#modal > div.container {
   position: absolute;
   width: 960px;
   height: 630px;
@@ -229,7 +227,7 @@ div#modal > div.container {
   -webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
   border: 1px solid #303030;
 }
-div#modal > div.container > div.resolutions {
+#modal > div.container > div.resolutions {
   position: relative;
   width: 960px;
   height: 600px;
@@ -240,7 +238,7 @@ div#modal > div.container > div.resolutions {
   -ms-user-select: none;
   user-select: none;
 }
-div#modal > div.container > div.resolutions > div {
+#modal > div.container > div.resolutions > div {
   position: absolute;
   top: 0;
   left: 0;
@@ -248,35 +246,35 @@ div#modal > div.container > div.resolutions > div {
   background: #404040;
   outline: 1px solid #000;
 }
-div#modal > div.container > div.resolutions > div:hover {
+#modal > div.container > div.resolutions > div:hover {
   background: #505050;
   border: 1px solid #fff;
   padding: 1px;
   outline: none;
   margin: -2px 0 0 -2px;
 }
-div#modal > div.container > div.resolutions > div:hover > div {
+#modal > div.container > div.resolutions > div:hover > div {
   color: #fff;
   margin: 0 1px 1px 0;
 }
-div#modal > div.container > div.resolutions > div > div {
+#modal > div.container > div.resolutions > div > div {
   font-size: 12px;
   position: absolute;
   right: 4px;
   bottom: 2px;
   text-align: right;
 }
-div#modal > div.container > div.resolutions > div > div > div {
+#modal > div.container > div.resolutions > div > div > div {
   font-size: 10px;
   font-weight: normal;
 }
-div#modal > div.container > h2 {
+#modal > div.container > h2 {
   padding: 0;
   margin: 8px 0 0;
   height: 24px;
   line-height: 24px;
   font-weight: normal;
 }
-div#modal > div.container > h2 > span {
+#modal > div.container > h2 > span {
   float: right;
 }
