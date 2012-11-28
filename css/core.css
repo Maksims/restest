@@ -1,0 +1,282 @@
+html {
+  height: 100%;
+  min-height: 480px;
+}
+html body {
+  height: 100%;
+  margin: 0;
+  overflow: scroll;
+  /*overflow-x: hidden;*/
+
+  font-family: Helvetica;
+  background: #303030;
+  font-size: 16px;
+}
+header {
+  position: fixed;
+  min-width: 960px;
+  width: 100%;
+  padding: 8px;
+  background: #404040;
+  border-bottom: 1px solid #303030;
+  /*box-shadow: 0 0 16px rgba(0, 0, 0, .5);
+  -moz-box-shadow: 0 0 16px rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 0 0 16px rgba(0, 0, 0, .5);*/
+
+  white-space: nowrap;
+  page-break-after: avoid;
+  page-break-before: avoid;
+  z-index: 101;
+}
+header > input,
+header select {
+  background: #303030;
+  border: none;
+  font-size: 16px;
+  color: #eee;
+  padding: 4px 8px;
+  height: 24px;
+  margin: 0;
+  vertical-align: text-top;
+}
+header > input:hover,
+header select:hover {
+  background: #383838;
+}
+header .button {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: text-top;
+  background: url('../img/icons.png') no-repeat 0 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+header .button:hover {
+  opacity: 0.8;
+}
+header .button#go {
+  margin-right: 64px;
+  background-position: -32px 0;
+}
+header .button#swap {
+  background-position: 0 0;
+}
+header .button#presets {
+  background-position: -64px 0;
+}
+header select {
+  height: 30px;
+}
+header input#url {
+  width: 384px;
+}
+header input#width,
+header input#height {
+  width: 48px;
+  text-align: center;
+}
+header > div.panel {
+  position: absolute;
+  top: 8px;
+  right: 24px;
+  font-size: 0;
+}
+header > div.panel > div,
+header > div.panel > a {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: url('../img/icons.png') no-repeat;
+  cursor: pointer;
+}
+header > div.panel > div.html5 {
+  background-position: -96px 0;
+  cursor: default;
+}
+header > div.panel > a.git {
+  background-position: -99px -66px;
+}
+header > div.panel > a.git:hover {
+  background-position: -132px -66px;
+}
+header > div.panel > div.share.facebook {
+  background-position: -33px -33px;
+}
+header > div.panel > div.share.facebook:hover {
+  background-position: -33px -66px;
+}
+header > div.panel > div.share.twitter {
+  background-position: -66px -33px;
+}
+header > div.panel > div.share.twitter:hover {
+  background-position: -66px -66px;
+}
+header > div.panel > div.share.googleplus {
+  background-position: 0 -33px;
+}
+header > div.panel > div.share.googleplus:hover {
+  background-position: 0 -66px;
+}
+div#frame {
+  width: 320px;
+  height: 480px;
+  position: relative;
+  top: 49px;
+  float: left;
+  background: url('../img/loading32.gif') #404040 no-repeat center center;
+  padding: 8px 10px 10px 8px;
+  /*box-shadow: 0 0 16px rgba(0, 0, 0, .5);
+  -moz-box-shadow: 0 0 16px rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 0 0 16px rgba(0, 0, 0, .5);*/
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+div#frame > div.scaleRight {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 8px;
+  height: 48px;
+  margin-top: -24px;
+  background: url('../img/icons.png') no-repeat -129px 0;
+  opacity: 0.3;
+  cursor: col-resize;
+}
+div#frame > div.scaleBottom {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 48px;
+  height: 8px;
+  margin-left: -24px;
+  background: url('../img/icons.png') no-repeat -114px -49px;
+  opacity: 0.3;
+  cursor: row-resize;
+}
+div#frame > div.scaleCorner {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  background: #f00;
+  background: url('../img/icons.png') no-repeat -138px 0;
+  opacity: 0.3;
+  cursor: nwse-resize;
+}
+div#frame > div.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+div#frame > iframe {
+  background: #fff;
+  border: 1px solid #303030;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+div#modal {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 201;
+}
+div#modal > div.close {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  background: rgba(64, 64, 64, 0.92);
+}
+div#modal > div.container {
+  position: absolute;
+  width: 960px;
+  height: 630px;
+  left: 50%;
+  top: 50%;
+  margin: -315px 0 0 -488px;
+  background: #404040;
+  padding: 8px;
+  color: #ccc;
+  overflow: hidden;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+  border: 1px solid #303030;
+}
+div#modal > div.container > div.resolutions {
+  position: relative;
+  width: 960px;
+  height: 600px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+div#modal > div.container > div.resolutions > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  background: #404040;
+  outline: 1px solid #000;
+}
+div#modal > div.container > div.resolutions > div:hover {
+  background: #505050;
+  border: 1px solid #fff;
+  padding: 1px;
+  outline: none;
+  margin: -2px 0 0 -2px;
+}
+div#modal > div.container > div.resolutions > div:hover > div {
+  color: #fff;
+  margin: 0 1px 1px 0;
+}
+div#modal > div.container > div.resolutions > div > div {
+  font-size: 12px;
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+  text-align: right;
+}
+div#modal > div.container > div.resolutions > div > div > div {
+  font-size: 10px;
+  font-weight: normal;
+}
+div#modal > div.container > h2 {
+  padding: 0;
+  margin: 8px 0 0;
+  height: 24px;
+  line-height: 24px;
+  font-weight: normal;
+}
+div#modal > div.container > h2 > span {
+  float: right;
+}
