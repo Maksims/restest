@@ -118,7 +118,7 @@ $(document).ready(function() {
       width: 540,
       height: 960
     }, {
-      title: 'Mobile',
+      title: 'Mobile, Galaxy S3',
       width: 480,
       height: 800
     }, {
