@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
   app = {
     dom: {
       frame: $('#frame'),
@@ -6,7 +6,7 @@ $(document).ready(function() {
       width: $('#width'),
       height: $('#height'),
       modal: $('#modal'),
-      resolutionTitle: $('#modal > div.container > h2#resolutionTitle')
+      resolutionTitle: $('#resolutionTitle')
     },
     width: 0,
     height: 0,
@@ -242,10 +242,15 @@ $(document).ready(function() {
 
   $('#url').trigger('change');
 
-  for(var i in app.resolutions) {
-    var html = "<div style='width:" + Math.round(app.resolutions[i].width / 2) + "px;height:" + Math.round(app.resolutions[i].height / 2) + "px;' data-width='" + app.resolutions[i].width + "' data-height='" + app.resolutions[i].height + "' data-title='" + app.resolutions[i].title + "'><div><div>" + app.resolutions[i].title.replace(/((Desktop)?(Mobile)?(,\s)?)+/, '') + "</div>" + app.resolutions[i].width + " x " + app.resolutions[i].height + "</div></div>";
-    $('#modal > div.container > div.resolutions').append(html);
-  }
+  var resolution_divs = $("<div>", {class: "resolutions"});
+
+  $.each(app.resolutions, function(i, resolution) {
+    var outer = $("<div>").css({"width": Math.round(resolution.width / 2), "height": Math.round(resolution.height / 2)}).attr("data-width", resolution.width).attr("data-height", resolution.height).attr("data-title", resolution.title);
+    var inner = $("<div>").append($("<div>").text(resolution.title.replace(/((Desktop)?(Mobile)?(,\s)?)+/, ''))).append(resolution.width + 'x' + resolution.height);
+    resolution_divs.append(outer.append(inner));
+  });
+
+  $('#modal > div.container > div.resolutions').replaceWith(resolution_divs);
 
   app.dom.modal.find('> div.container > div.resolutions > div').hover(function() {
     app.dom.resolutionTitle.html($(this).attr('data-title') + '<span>' + $(this).attr('data-width') + ' x ' + $(this).attr('data-height') + '</span>');
@@ -253,7 +258,7 @@ $(document).ready(function() {
     app.dom.resolutionTitle.html('');
   });
 
-  $('.button#presets').click(function() {
+  $('#presets').click(function() {
     app.dom.modal.css('display', 'block').animate({ opacity: 1 }, { duration: 200, queue: false });
   });
 
