@@ -27,7 +27,8 @@ $(function() {
       if (width != this.width || height != this.height) {
         this.width = width;
         this.height = height;
-        $('#frame').animate({ 'width': this.width, 'height': this.height }, { duration: 200, queue: false });
+        var animation_duration = (app.resize.snap) ? 2000 : 200;
+        $('#frame').animate({ 'width': this.width, 'height': this.height }, { duration: animation_duration, queue: false });
       }
     },
 
@@ -149,7 +150,7 @@ $(function() {
     if (url.substr(0, 4) != 'http' || url.substr(0, 3) != 'ftp') {
       url = 'http://' + url;
     }
-    app.dom.iframe.animate({ 'opacity': 0 }, { duraiton: 200, queue: false });
+    app.dom.iframe.animate({ 'opacity': 0 }, { duration: 200, queue: false });
     app.dom.iframe.attr('src', url);
   });
   $('#go').click(function() {
