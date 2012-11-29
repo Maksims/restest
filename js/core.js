@@ -10,7 +10,10 @@ $(function() {
     },
     width: 0,
     height: 0,
-    update: function(width, height) {
+    update: function(width, height, animate) {
+      if (animate == undefined) {
+        animate = true;
+      }
       width = parseInt(width);
       if (width) {
         width = Math.max(width, 96);
@@ -27,8 +30,12 @@ $(function() {
       if (width != this.width || height != this.height) {
         this.width = width;
         this.height = height;
-        var animation_duration = (app.resize.snap) ? 2000 : 200;
-        $('#frame').animate({ 'width': this.width, 'height': this.height }, { duration: animation_duration, queue: false });
+        if (animate) {
+          var animation_duration = (app.resize.snap) ? 2000 : 200;
+          $('#frame').animate({ 'width': this.width, 'height': this.height }, { duration: animation_duration, queue: false });
+        } else {
+          $('#frame').css({ 'width': this.width, 'height': this.height });
+        }
       }
     },
 
@@ -237,7 +244,7 @@ $(function() {
 
       app.dom.width.val(app.dom.frame.width());
       app.dom.height.val(app.dom.frame.height());
-      app.update(app.dom.frame.width(), app.dom.frame.height());
+      app.update(app.dom.frame.width(), app.dom.frame.height(), false);
       app.dom.frame.children('div.overlay').css('display', 'none');
       app.dom.frame.children('div.scaleRight').removeClass('active');
       app.dom.frame.children('div.scaleBottom').removeClass('active');
