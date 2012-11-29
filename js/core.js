@@ -277,30 +277,38 @@ $(function() {
     resolution_divs.append(outer.append(inner));
   });
 
-  $('#modal > div.container > div.resolutions').replaceWith(resolution_divs);
+  $('#modal > div.container.presets > div.resolutions').replaceWith(resolution_divs);
 
-  app.dom.modal.find('> div.container > div.resolutions > div').hover(function() {
+  app.dom.modal.find('> div.container.presets > div.resolutions > div').hover(function() {
     app.dom.resolutionTitle.html($(this).attr('data-title') + '<span>' + $(this).attr('data-width') + ' x ' + $(this).attr('data-height') + '</span>');
   }, function() {
     app.dom.resolutionTitle.html('');
   });
 
+  $('#info').click(function() {
+    app.dom.modal.children('div.container.info').css('display', 'block');
+    app.dom.modal.css('display', 'block').animate({ opacity: 1 }, { duration: 200, queue: false });
+  });
+
   $('#presets').click(function() {
+    app.dom.modal.children('div.container.presets').css('display', 'block');
     app.dom.modal.css('display', 'block').animate({ opacity: 1 }, { duration: 200, queue: false });
   });
 
   app.dom.modal.find('.close').click(function() {
     app.dom.modal.animate({ opacity: 0 }, { duration: 200, queue: false, complete: function() {
       $(this).css('display', 'none');
+      $(this).children('div.container').css('display', 'none');
     }});
   });
 
-  app.dom.modal.find('> div.container > div.resolutions > div').click(function() {
+  app.dom.modal.find('> div.container.presets > div.resolutions > div').click(function() {
     app.dom.width.val($(this).attr('data-width'));
     app.dom.height.val($(this).attr('data-height'));
     app.update($(this).attr('data-width'), $(this).attr('data-height'));
     app.dom.modal.animate({ opacity: 0 }, { duration: 200, queue: false, complete: function() {
       $(this).css('display', 'none');
+      $(this).children('div.container').css('display', 'none');
     }});
   });
 

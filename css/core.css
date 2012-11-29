@@ -10,6 +10,13 @@ html body {
   background: #303030;
   font-size: 16px;
 }
+a {
+  text-decoration: none;
+  color: #80c0ff;
+}
+a:hover {
+  color: #40a0ff;
+}
 header {
   position: fixed;
   min-width: 960px;
@@ -40,6 +47,7 @@ header select {
 header > input:hover,
 header select:hover {
   background: #383838;
+  color: #fff;
 }
 header .button {
   width: 32px;
@@ -55,21 +63,30 @@ header .button {
   -ms-user-select: none;
   user-select: none;
 }
-header .button:hover {
-  opacity: 0.8;
-}
 header .button#go {
   margin-right: 64px;
-  background-position: -32px 0;
+  background-position: -33px 0;
+}
+header .button#go:hover {
+  background-position: -33px -33px;
 }
 header .button#fullscreen {
-  background-position: 0 -99px;
+  background-position: -99px 0;
+}
+header .button#fullscreen:hover {
+  background-position: -99px -33px;
 }
 header .button#swap {
   background-position: 0 0;
 }
+header .button#swap:hover {
+  background-position: 0 -33px;
+}
 header .button#presets {
-  background-position: -64px 0;
+  background-position: -66px 0;
+}
+header .button#presets:hover {
+  background-position: -66px -33px;
 }
 header select {
   height: 30px;
@@ -96,33 +113,36 @@ header > div.panel > a {
   background: url('../img/icons.png') no-repeat;
   cursor: pointer;
 }
-header > div.panel > div.html5 {
-  background-position: -96px 0;
-  cursor: default;
+header > div.panel > div#info {
+  margin-right: 24px;
+  background-position: -132px -66px;
+}
+header > div.panel > div#info:hover {
+  background-position: -132px -99px;
 }
 header > div.panel > a.git {
   background-position: -99px -66px;
 }
 header > div.panel > a.git:hover {
-  background-position: -132px -66px;
+  background-position: -99px -99px;
 }
 header > div.panel > div.share.facebook {
-  background-position: -33px -33px;
-}
-header > div.panel > div.share.facebook:hover {
   background-position: -33px -66px;
 }
-header > div.panel > div.share.twitter {
-  background-position: -66px -33px;
+header > div.panel > div.share.facebook:hover {
+  background-position: -33px -99px;
 }
-header > div.panel > div.share.twitter:hover {
+header > div.panel > div.share.twitter {
   background-position: -66px -66px;
 }
+header > div.panel > div.share.twitter:hover {
+  background-position: -66px -99px;
+}
 header > div.panel > div.share.googleplus {
-  background-position: 0 -33px;
+  background-position: 0 -66px;
 }
 header > div.panel > div.share.googleplus:hover {
-  background-position: 0 -66px;
+  background-position: 0 -99px;
 }
 #frame {
   width: 320px;
@@ -244,12 +264,86 @@ header > div.panel > div.share.googleplus:hover {
   padding: 8px;
   color: #ccc;
   overflow: hidden;
+  display: none;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
   border: 1px solid #303030;
 }
-#modal > div.container > div.resolutions {
+#modal > div.container.info {
+  width: 370px;
+  height: 522px;
+  margin: -269px 0 0 -193px;
+}
+#modal > div.container.info > h1 {
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+  line-height: 32px;
+  color: #fff;
+}
+#modal > div.container.info > h1 > span.a {
+  font-weight: 100;
+  color: #ccc;
+}
+#modal > div.container.info > h1 > span.b {
+  font-weight: 100;
+  font-size: 24px;
+  line-height: 18px;
+  display: block;
+  color: #666;
+}
+#modal > div.container.info > h2 {
+  margin: 24px 0 4px;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 22px;
+  line-height: 22px;
+  color: #fff;
+}
+#modal > div.container.info > h3 {
+  margin: 24px 0 4px;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 18px;
+  color: #fff;
+}
+#modal > div.container.info > ul {
+  margin: 0;
+  padding: 0 0 0 18px;
+}
+#modal > div.container.info > ul.contacts {
+  font-size: 12px;
+}
+#modal > div.container.info > ul.contacts > li {
+  line-height: 14px;
+}
+#modal > div.container.info > ul > li {
+  font-weight: 100;
+  line-height: 18px;
+}
+#modal > div.container.info > ul > li > a {
+  font-size: 12px;
+}
+#modal > div.container.info p {
+  margin: 8px 0;
+  font-weight: 100;
+  line-height: 18px;
+}
+#modal > div.container.info p > span {
+  color: #fff;
+}
+#modal > div.container.info > div.html5 {
+  position: absolute;
+  right: 4px;
+  bottom: 8px;
+  width: 32px;
+  height: 32px;
+  background: url('../img/icons.png') no-repeat -132px 0;
+}
+#modal > div.container.presets > div.resolutions {
   position: relative;
   width: 960px;
   height: 600px;
@@ -260,7 +354,7 @@ header > div.panel > div.share.googleplus:hover {
   -ms-user-select: none;
   user-select: none;
 }
-#modal > div.container > div.resolutions > div {
+#modal > div.container.presets > div.resolutions > div {
   position: absolute;
   top: 0;
   left: 0;
@@ -268,35 +362,35 @@ header > div.panel > div.share.googleplus:hover {
   background: #404040;
   outline: 1px solid #000;
 }
-#modal > div.container > div.resolutions > div:hover {
+#modal > div.container.presets > div.resolutions > div:hover {
   background: #505050;
   border: 1px solid #fff;
   padding: 1px;
   outline: none;
   margin: -2px 0 0 -2px;
 }
-#modal > div.container > div.resolutions > div:hover > div {
+#modal > div.container.presets > div.resolutions > div:hover > div {
   color: #fff;
   margin: 0 1px 1px 0;
 }
-#modal > div.container > div.resolutions > div > div {
+#modal > div.container.presets > div.resolutions > div > div {
   font-size: 12px;
   position: absolute;
   right: 4px;
   bottom: 2px;
   text-align: right;
 }
-#modal > div.container > div.resolutions > div > div > div {
+#modal > div.container.presets > div.resolutions > div > div > div {
   font-size: 10px;
   font-weight: normal;
 }
-#modal > div.container > h2 {
+#modal > div.container.presets > h2 {
   padding: 0;
   margin: 8px 0 0;
   height: 24px;
   line-height: 24px;
   font-weight: normal;
 }
-#modal > div.container > h2 > span {
+#modal > div.container.presets > h2 > span {
   float: right;
 }
