@@ -62,6 +62,9 @@ header .button#go {
   margin-right: 64px;
   background-position: -32px 0;
 }
+header .button#fullscreen {
+  background-position: 0 -99px;
+}
 header .button#swap {
   background-position: 0 0;
 }
@@ -142,36 +145,55 @@ header > div.panel > div.share.googleplus:hover {
 }
 #frame > div.scaleRight {
   position: absolute;
-  top: 50%;
+  top: 24px;
   right: 0;
+  bottom: 24px;
   width: 8px;
-  height: 48px;
-  margin-top: -24px;
-  background: url('../img/icons.png') no-repeat -129px 0;
-  opacity: 0.3;
+  height: auto;
+  border-top: 1px solid #303030;
+  border-bottom: 1px solid #303030;
   cursor: col-resize;
+  background: #404040;
+}
+#frame > div.scaleRight:hover,
+#frame > div.scaleRight.active {
+  background: #505050;
 }
 #frame > div.scaleBottom {
   position: absolute;
+  right: 24px;
   bottom: 0;
-  left: 50%;
-  width: 48px;
+  left: 24px;
+  width: auto;
   height: 8px;
-  margin-left: -24px;
-  background: url('../img/icons.png') no-repeat -114px -49px;
-  opacity: 0.3;
+  border-right: 1px solid #303030;
+  border-left: 1px solid #303030;
   cursor: row-resize;
+  background: #404040;
+}
+#frame > div.scaleBottom:hover,
+#frame > div.scaleBottom.active {
+  background: #505050;
 }
 #frame > div.scaleCorner {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 24px;
-  height: 24px;
-  background: #f00;
-  background: url('../img/icons.png') no-repeat -138px 0;
-  opacity: 0.3;
   cursor: nwse-resize;
+  background: #404040;
+}
+#frame > div.scaleCorner.right {
+  width: 8px;
+  height: 24px;
+}
+#frame > div.scaleCorner.bottom {
+  right: 8px;
+  width: 16px;
+  height: 8px;
+}
+#frame > div.scaleCorner.hover,
+#frame > div.scaleCorner.active {
+  background: #505050;
 }
 #frame > div.overlay {
   position: absolute;

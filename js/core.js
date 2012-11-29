@@ -156,6 +156,13 @@ $(function() {
     $('#url').trigger('change');
   });
 
+  $('#fullscreen').click(function() {
+    var width = $(window).width();
+    var height = $(window).height();
+    app.dom.width.val(width);
+    app.dom.height.val(height);
+    app.update(width - 18, height - (18 + 49));
+  });
   app.dom.width.change(function() {
     app.update($(this).val().trim(), app.height);
   });
@@ -192,6 +199,7 @@ $(function() {
     data.width = app.dom.frame.width();
     $('html').css('cursor', 'col-resize');
     app.dom.frame.children('div.overlay').css('display', 'block');
+    $(this).addClass('active');
     return false;
   });
   app.dom.frame.children('div.scaleBottom').mousedown(function(e) {
@@ -201,9 +209,15 @@ $(function() {
     data.height = app.dom.frame.height();
     $('html').css('cursor', 'row-resize');
     app.dom.frame.children('div.overlay').css('display', 'block');
+    $(this).addClass('active');
     return false;
   });
-  app.dom.frame.children('div.scaleCorner').mousedown(function(e) {
+  app.dom.frame.find('> div.scaleCorner').hover(function() {
+    $(this).parent().children('.scaleCorner').addClass('hover');
+  }, function() {
+    $(this).parent().children('.scaleCorner').removeClass('hover');
+  });
+  app.dom.frame.find('> div.scaleCorner').mousedown(function(e) {
     app.resize.x.start = e.clientX;
     app.resize.y.start = e.clientY;
     app.resize.x.active = true;
@@ -212,6 +226,7 @@ $(function() {
     app.resize.y.height = app.dom.frame.height();
     $('html').css('cursor', 'nwse-resize');
     app.dom.frame.children('div.overlay').css('display', 'block');
+    $(this).parent().children('.scaleCorner').addClass('active');
     return false;
   });
   $(window).mouseup(function(e) {
@@ -223,6 +238,9 @@ $(function() {
       app.dom.height.val(app.dom.frame.height());
       app.update(app.dom.frame.width(), app.dom.frame.height());
       app.dom.frame.children('div.overlay').css('display', 'none');
+      app.dom.frame.children('div.scaleRight').removeClass('active');
+      app.dom.frame.children('div.scaleBottom').removeClass('active');
+      app.dom.frame.children('div.scaleCorner').removeClass('active hover');
       $('html').css('cursor', '');
     }
   });
