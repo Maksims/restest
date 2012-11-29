@@ -28,6 +28,7 @@ $(function() {
       }
 
       if (width != this.width || height != this.height) {
+        $('#frame').stop(false, false);
         this.width = width;
         this.height = height;
         if (animate) {
