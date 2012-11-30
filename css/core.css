@@ -68,25 +68,25 @@ header .button#go {
   background-position: -33px 0;
 }
 header .button#go:hover {
-  background-position: -33px -33px;
+  background-color: #505050;
 }
 header .button#fullscreen {
   background-position: -99px 0;
 }
 header .button#fullscreen:hover {
-  background-position: -99px -33px;
+  background-color: #505050;
 }
 header .button#swap {
   background-position: 0 0;
 }
 header .button#swap:hover {
-  background-position: 0 -33px;
+  background-color: #505050;
 }
 header .button#presets {
   background-position: -66px 0;
 }
 header .button#presets:hover {
-  background-position: -66px -33px;
+  background-color: #505050;
 }
 header select {
   height: 30px;
@@ -118,7 +118,7 @@ header > div.panel > div#info {
   background-position: -132px -66px;
 }
 header > div.panel > div#info:hover {
-  background-position: -132px -99px;
+  background-color: #505050;
 }
 header > div.panel > a.git {
   background-position: -99px -66px;

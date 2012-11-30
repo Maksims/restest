@@ -154,10 +154,18 @@ $(function() {
   };
 
   $('#url').change(function() {
+    app.dom.iframe.attr('src', '');
+
     var url = $(this).val();
-    if (url.substr(0, 4) != 'http' || url.substr(0, 3) != 'ftp') {
-      url = 'http://' + url;
+    if (url.substr(0, 7) != 'http://' && 
+        url.substr(0, 8) != 'https://' &&
+        url.substr(0, 6) != 'ftp://' &&
+        url.substr(0, 7) != 'file://') {
+
+      url = "http://" + url;
+      $(this).val(url);
     }
+
     app.dom.iframe.animate({ 'opacity': 0 }, { duration: 200, queue: false });
     app.dom.iframe.attr('src', url);
   });
