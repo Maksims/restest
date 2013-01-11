@@ -157,7 +157,7 @@ $(function() {
     app.dom.iframe.attr('src', '');
 
     var url = $(this).val();
-    if (url.substr(0, 7) != 'http://' && 
+    if (url.substr(0, 7) != 'http://' &&
         url.substr(0, 8) != 'https://' &&
         url.substr(0, 6) != 'ftp://' &&
         url.substr(0, 7) != 'file://') {
@@ -165,6 +165,8 @@ $(function() {
       url = "http://" + url;
       $(this).val(url);
     }
+
+    location.hash = url;
 
     app.dom.iframe.animate({ 'opacity': 0 }, { duration: 200, queue: false });
     app.dom.iframe.attr('src', url);
@@ -275,6 +277,9 @@ $(function() {
   app.dom.height.val(app.dom.frame.height());
   app.update(app.dom.frame.width(), app.dom.frame.height());
 
+  if (location.hash && location.hash.length > 1) {
+    $('#url').val(location.hash.substr(1));
+  }
   $('#url').trigger('change');
 
   var resolution_divs = $("<div>", {class: "resolutions"});

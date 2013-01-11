@@ -280,6 +280,7 @@ header > div.panel > div.share.googleplus:hover {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 0;
+  font-size: 30px;
   line-height: 32px;
   color: #fff;
 }
